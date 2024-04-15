@@ -3,15 +3,15 @@ import './App.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const [activeDeals, setActiveDeals] = useState([]);
-
-useEffect(() => {
-  axios.get('http://localhost:3002/api/get').then((data) => {
-    setActiveDeals(data.data);
-  });
-}, []);
-
 function App() {
+  const [activeDeals, setActiveDeals] = useState([]);
+  
+  useEffect(() => {
+    axios.get('http://localhost:3002/api/get').then((data) => {
+      setActiveDeals(data.data);
+    });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
