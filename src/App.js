@@ -5,10 +5,13 @@ import React, { useEffect, useState } from 'react';
 
 function App() {
   const [activeDeals, setActiveDeals] = useState([]);
-  
+
   useEffect(() => {
     axios.get('http://localhost:3002/api/get').then((data) => {
       setActiveDeals(data.data);
+    })
+    .catch((err) => {
+      console.log(err);
     });
   }, []);
 
@@ -19,6 +22,16 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <ul>
+          {activeDeals.map((deals) => {
+            return (
+              <li customer = {deals.customer}>
+                <p>{deals.car_model}</p>
+                <p>{deals.price}</p>
+              </li>
+            );
+          })}
+        </ul>
         <a
           className="App-link"
           href="https://reactjs.org"
