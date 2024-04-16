@@ -28,6 +28,8 @@ function App() {
               <li customer = {deals.customer}>
                 <p>{deals.car_model}</p>
                 <p>{deals.price}</p>
+                <p>{deals.customer}</p>
+                <p>{deals.delivery_date}</p>
               </li>
             );
           })}
